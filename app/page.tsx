@@ -3,7 +3,7 @@ import { CharacterResultsTypes } from '../types'
 
 //TODO Search filter
 
-export const fetchCharacters = async (): Promise<CharacterResultsTypes> =>{
+const fetchCharacters = async (): Promise<CharacterResultsTypes> =>{
     const res = await fetch('https://hp-api.onrender.com/api/characters')
 
     if(!res.ok){
@@ -17,7 +17,7 @@ export default async function Page(){
 
     return (
         <div>
-            <h2 className='p-4 text-5xl text-center'>All characters in the films</h2>
+            <h2 className='p-4 text-4xl text-center'>All characters in the films</h2>
             <div className=" p-10 flex flex-row flex-wrap gap-10">
                 {characters.map(character=>(
                 <Card key={character.id} id={character.id} name={character.name} image={character.image} dateOfBirth={character.dateOfBirth} actor={character.actor} />
