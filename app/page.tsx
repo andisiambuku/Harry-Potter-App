@@ -3,7 +3,7 @@ import { CharacterResultsTypes } from '../types'
 
 //TODO Search filter
 
-const fetchCharacters = async (): Promise<CharacterResultsTypes> =>{
+export const fetchCharacters = async (): Promise<CharacterResultsTypes> =>{
     const res = await fetch('https://hp-api.onrender.com/api/characters')
 
     if(!res.ok){
