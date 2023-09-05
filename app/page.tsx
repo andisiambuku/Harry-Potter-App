@@ -16,14 +16,13 @@ export default async function Page(){
     const characters = await fetchCharacters()
 
     return (
-        <>
-        {/* {JSON.stringify(characters)} */}
-        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: 10}}>
-        {characters.map(character=>(
-            <Card key={character.id} id={character.id} name={character.name} image={character.image} dateOfBirth={character.dateOfBirth} actor={character.actor} />
-        ))}
-
+        <div>
+            <h2 className='p-4 text-5xl text-center'>All characters in the films</h2>
+            <div className=" p-10 flex flex-row flex-wrap gap-10">
+                {characters.map(character=>(
+                <Card key={character.id} id={character.id} name={character.name} image={character.image} dateOfBirth={character.dateOfBirth} actor={character.actor} />
+            ))}
+            </div>
         </div>
-        </>
     )
 }
