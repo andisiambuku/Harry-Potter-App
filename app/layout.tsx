@@ -6,7 +6,6 @@ import { Inter } from "next/font/google";
 
 export const inter = Inter({subsets: ['latin'], });
 
-
 export const metadata: Metadata = {
   title: "Harry Potter App",
   description: "Harry Potter App",
@@ -17,6 +16,7 @@ export default function RootLayout({
 }:{
     children:React.ReactNode
 })
+
 {
     return(
         <html lang="en" className={inter.className}>
