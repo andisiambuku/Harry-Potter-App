@@ -37,7 +37,7 @@ export default function Page() {
   useEffect(() => {
     // Filter characters based on the searchQuery
     const filteredResults = characters.filter((character) =>
-      character.name.toLowerCase().includes(searchQuery.toLowerCase())
+      character.name?.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredCharacters(filteredResults);
   }, [searchQuery, characters]);
