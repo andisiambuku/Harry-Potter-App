@@ -2,9 +2,9 @@ import './globals.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import { Inter } from "next/font/google";
 
-export const quicksand = Quicksand({weight: '400', subsets: ['latin'], });
+export const inter = Inter({subsets: ['latin'], });
 
 export const metadata: Metadata = {
   title: "Harry Potter App",
@@ -18,7 +18,7 @@ export default function RootLayout({
 })
 {
     return(
-        <html lang="en" className={quicksand.className}>
+        <html lang="en" className={inter.className}>
             <body>
             <Navbar/>
             {children}
