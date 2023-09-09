@@ -5,11 +5,14 @@ import { CharacterResultsTypes } from '../types';
 
 const ITEMS_PER_PAGE = 21;
 
+
 export default function Page() {
   const [characters, setCharacters] = useState<CharacterResultsTypes>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredCharacters, setFilteredCharacters] = useState<CharacterResultsTypes>([]);
+
+
 
   useEffect(() => {
     fetchCharacters(currentPage);
@@ -33,6 +36,7 @@ export default function Page() {
   const handlePageChange = (newPage: number): void => {
     setCurrentPage(newPage);
   };
+
 
   useEffect(() => {
     // Filter characters based on the searchQuery
