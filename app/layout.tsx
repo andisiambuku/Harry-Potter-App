@@ -4,9 +4,9 @@ import Footer from '../components/Footer'
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-export const inter = Inter({subsets: ['latin'], });
+const inter = Inter({subsets: ['latin'], });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Harry Potter App",
   description: "Harry Potter App",
 };
