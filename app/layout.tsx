@@ -8,7 +8,7 @@ const inter = Inter({subsets: ['latin'], });
 
 const metadata: Metadata = {
   title: "Harry Potter App",
-  description: "Harry Potter App",
+  description: "Hogwarts App",
 };
 
 export default function RootLayout({

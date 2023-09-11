@@ -5,14 +5,11 @@ import { CharacterResultsTypes } from '../types';
 
 const ITEMS_PER_PAGE = 21;
 
-
 export default function Page() {
   const [characters, setCharacters] = useState<CharacterResultsTypes>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredCharacters, setFilteredCharacters] = useState<CharacterResultsTypes>([]);
-
-
 
   useEffect(() => {
     fetchCharacters(currentPage);
@@ -36,7 +33,6 @@ export default function Page() {
   const handlePageChange = (newPage: number): void => {
     setCurrentPage(newPage);
   };
-
 
   useEffect(() => {
     // Filter characters based on the searchQuery
@@ -68,7 +64,6 @@ export default function Page() {
             id={character.id}
             name={character.name}
             image={character.image}
-            dateOfBirth={character.dateOfBirth}
             actor={character.actor}
           />
         ))}
@@ -81,14 +76,13 @@ export default function Page() {
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          {/* Previous button */}
+          Previous
         </button>
         <button
           className='p-10'
           onClick={() => handlePageChange(currentPage + 1)}
-          disabled={characters.length < ITEMS_PER_PAGE}
         >
-          {/* Next button */}
+          Next
         </button>
       </div>
     </div>
