@@ -12,8 +12,6 @@ type CardProps = {
   }
 
 const Card = ({ id, name,  dateOfBirth, image }: CardProps)=>{
-
-
     return (     
       <Link href={`/character/${id}`}>
         <div className="max-w-sm rounded overflow-hidden shadow-lg" style={{border: '1px solid #eee', borderRadius: '8px', width:'400px', height: '400px', padding: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
