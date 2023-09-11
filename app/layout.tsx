@@ -7,7 +7,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({subsets: ['latin'], });
 
 const metadata: Metadata = {
-  title: "Hogwarts App",
+  title: "Harry Potter App",
   description: "Hogwarts App",
 };
 
