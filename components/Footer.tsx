@@ -7,12 +7,12 @@ const Footer =()=>{
       className="ml-2 text-xl text-neutral-800 dark:text-neutral-200"
       href="https://hp-api.onrender.com/"
       >Powered by  Potter Public API </a>
-    <div className="ml-5 flex w-[20%] items-center justify-between">
+    {/* <div className="ml-5 flex w-[20%] items-center justify-between">
     <a
       className="ml-2 text-xl text-neutral-800 dark:text-neutral-200"
       href="https://twitter.com/AndisiAmbuku"
       >Created by Andisi Ambuku</a>
-    </div>
+    </div> */}
   </div>
 </nav>
     )
