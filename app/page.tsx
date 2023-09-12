@@ -1,15 +1,15 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
-import { CharacterResultsTypes } from '../types';
+import { CharacterType } from '@/types';
 
 const ITEMS_PER_PAGE = 21;
 
 export default function Page() {
-  const [characters, setCharacters] = useState<CharacterResultsTypes>([]);
+  const [characters, setCharacters] = useState<CharacterType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredCharacters, setFilteredCharacters] = useState<CharacterResultsTypes>([]);
+  const [filteredCharacters, setFilteredCharacters] = useState<CharacterType[]>([]);
 
   useEffect(() => {
     fetchCharacters(currentPage);
@@ -42,6 +42,10 @@ export default function Page() {
     setFilteredCharacters(filteredResults);
   }, [searchQuery, characters]);
 
+  const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+  const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
+  const currentItems = filteredCharacters.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <div>
       <h2 className='p-4 text-4xl text-center'>All characters in the films</h2>
@@ -57,8 +61,8 @@ export default function Page() {
         />
       </div>
 
-      <div className="p-10 flex flex-row flex-wrap gap-10">
-        {filteredCharacters.map((character) => (
+      <div className="p-10 grid grid-cols-1  place-items-center md:grid-cols-3 lg:grid-cols-3 gap-10">
+        {currentItems.map((character) => (
           <Card
             key={character.id}
             id={character.id}
@@ -76,15 +80,39 @@ export default function Page() {
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          Previous
+          <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          className="h-8 w-8">
+          <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
         </button>
         <button
           className='p-10'
           onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentItems.length < ITEMS_PER_PAGE} // Disable "Next" button when there are no more items to show
         >
-          Next
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            className="h-8 w-8">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
         </button>
       </div>
     </div>
   );
 }
+
