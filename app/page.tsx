@@ -61,7 +61,7 @@ export default function Page() {
         />
       </div>
 
-      <div className="p-10 grid grid-cols-1  place-items-center md:grid-cols-3 lg:grid-cols-3 gap-10">
+      <div className="p-10 mx-3 grid grid-cols-1  place-items-center md:grid-cols-3 lg:grid-cols-3 gap-10">
         {currentItems.map((character) => (
           <Card
             key={character.id}
